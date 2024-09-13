@@ -13,7 +13,7 @@ from NetworkSecurity.Components.model_pusher import ModelPusher
 
 
 from NetworkSecurity.Entity.config_entity import (
-    TrainingPipeline,
+    TrainingPipelineConfig,
     DataIngestionConfig, 
     DataValidationConfig, 
     DataTransformationConfig, 
