@@ -4,6 +4,7 @@ from NetworkSecurity.Constant import training_pipeline
 
 print(training_pipeline.ARTIFACT_DIR) #define some sort of constant (variables) to stramline this pipline
                                       #Constants are defined using capital letters 
+                                      #ARTIFACT_DIR defined in __init__.py in training_pipeline folder
 
 # from NetworkSecurity.Logger.logger import logging 
 # from NetworkSecurity.Exception.exception import NetworkSecurityException
