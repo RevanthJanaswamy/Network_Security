@@ -30,7 +30,9 @@ class DataIngestion:
     def export_collection_as_dataframe(self):
        
        try:
-          pass
+          database_name= self.data_ingestion.config.database_name
+          collection_name= self.data_ingestion.config.collection_name
+          self.mongo_client = pymongo.MongoClient(MONGO_DB_URL)
        
        except Exception as e:
           raise NetworkSecurityException(e,sys)
