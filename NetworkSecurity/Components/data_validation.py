@@ -3,15 +3,22 @@ from NetworkSecurity.Entity.artifact_entity import DataIngestionArtifact, DataVa
 from NetworkSecurity.Entity.config_entity import DataValidationConfig
 from NetworkSecurity.Exception.exception import NetworkSecurityException 
 from NetworkSecurity.Logger.logger import logging 
-from NetworkSecurity.Utils.main_utils.utils import read_yaml_file,write_yaml_file
+from NetworkSecurity.Utils.main_utils.utils import read_yaml_file, write_yaml_file
 from scipy.stats import ks_2samp #It will 2 samples of data and will tell you how much they are deviated from each other
 import pandas as pd
 import os,sys
 
 
-class DataValidation    :
-    def __init__(self):
-        pass
+class DataValidation:
+    def __init__(self, data_ingestion_artifact: DataIngestionArtifact, 
+                 data_validation_config: DataValidationConfig):
+        
+        try:
+            self.data_ingestion_artifact = data_ingestion_artifact
+            self.data_validation_config = data_validation_config
+            self._schema_config = read_yaml_file(SCHEMA_FILE_PATH)
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)
 
     def validate_number_of_columns(self, dataframe: pd.DataFrame) ->bool:
         try:
@@ -23,7 +30,7 @@ class DataValidation    :
          try:
             pass
          except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise NetworkSecurityException(e,sys) 
     
     @staticmethod
     def read_data(file_path) -> pd.DataFrame:
@@ -40,10 +47,10 @@ class DataValidation    :
          
     def initiate_data_validation(self):
         try:
-            self.read_data()
+            self.read_data(file_path)
             self.validate_number_of_columns()
             self.is_numerical_column_exists()
-            self.detect_dataset_drift()
+            self.detect_dataset_drift() 
 
         except Exception as e:
             raise NetworkSecurityException(e,sys)
