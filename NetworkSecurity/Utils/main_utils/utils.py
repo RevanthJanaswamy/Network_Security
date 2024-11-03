@@ -9,7 +9,7 @@ import pickle
 def read_yaml_file(file_path:str) -> dict:
 
     with open(file_path, 'rb') as yaml_file:
-        return yaml.safe_load(file_path)
+        return yaml.safe_load(yaml_file)
     
 def write_yaml_file(file_path: str, content: object, replace: bool = False) -> None:
     try:
