@@ -7,15 +7,15 @@ from sklearn.pipeline import Pipeline
 
 from NetworkSecurity.Constant.training_pipeline import TARGET_COLUMN
 from NetworkSecurity.Constant.training_pipeline import DATA_TRANSFORMATION_IMPUTER_PARAMS
-from networksecurity.entity.artifact_entity import (
+from NetworkSecurity.Entity.artifact_entity import (
     DataTransformationArtifact,
     DataValidationArtifact,
 )
-from networksecurity.entity.config_entity import DataTransformationConfig
-from networksecurity.exception.exception import NetworkSecurityException 
-from networksecurity.logger.logger import logging
+from NetworkSecurity.Entity.config_entity import DataTransformationConfig
+from NetworkSecurity.Exception.exception import NetworkSecurityException 
+from NetworkSecurity.Logger.logger import logging
 #from networksecurity.utils.ml_utils.model.estimator import TargetValueMapping
-from networksecurity.utils.main_utils.utils import save_numpy_array_data, save_object
+from NetworkSecurity.Utils.main_utils.utils import save_numpy_array_data, save_object
 
 
 
