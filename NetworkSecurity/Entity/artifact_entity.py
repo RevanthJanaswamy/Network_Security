@@ -37,8 +37,14 @@ class ModelTrainerArtifact:
       
 @dataclass
 class ModelEvaluationArtifact:
-      def __init__(self): 
-            pass
+    
+    is_model_accepted: bool
+    improved_accuracy: float
+    best_model_path: str
+    trained_model_path: str
+    train_model_metric_artifact: ClassificationMetricArtifact
+    best_model_metric_artifact: ClassificationMetricArtifact
+    
 @dataclass
 class ModelPusherArtifact:
       def __init__(self): 
